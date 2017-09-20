@@ -1,0 +1,86 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="css/styles.css">
+      <script type="text/javascript" src="code/common.js"></script>
+      <script type="text/javascript" src="code/msg.js"></script>    
+      <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>    
+   </head>
+   <body>
+      <iframe src='menu.html' width='100%' height='28px' style='border: none;'></iframe>
+      <h1><center>TIP/MESSAGE TO ACTIVE USERS IN THEIR WALLET</center></h1>
+      <br />
+      <div align='center'>
+         <h2>
+         FEE: 0.001 SBD PER TRANSACTION
+         <h2>
+      </div>
+      <table align='center'>
+         <tr>
+            <td colspan='3'>
+               <hr />
+            </td>
+         </tr>
+         <tr>
+            <td style='width: 100px'><label for='accountName'>Account Name: </label></td>
+            <td><input type='text' placeholder='Your Account Name' id='accountName' onchange='checkAccountName();' /></td>
+            <td style='width: 110px'>
+               <div class='error' id='accountName_err'></div>
+            </td>
+         </tr>
+         <tr>
+            <td><label for='activeKey'>Active Key: </label></td>
+            <td><input type='password' placeholder='Your Active Key' id='activeKey' onchange='checkActiveKey();' /></td>
+            <td>
+               <div class='error' id='activeKey_err'></div>
+            </td>
+         </tr>
+         <tr>
+            <td><label for='tipAmount'>SBD Amount: </label></td>
+            <td>
+               <input type='number' min='0.001' value='0.001' id='tipAmount' onchange='checkTipAmount();' />
+            </td>
+            <td>
+               <div class='error' id='tipAmount_err'></div>
+            </td>
+         </tr>
+         <tr>
+            <td><label for='inactiveHours'>Inactive Hours: </label></td>
+            <td>
+               <input type='number' min='1' placeholder='Acceptable Number of Inactive Hours' id='inactiveHours' onchange='checkInactiveHours();' />
+            </td>
+            <td>
+               <div class='error' id='inactiveHours_err'></div>
+            </td>
+         </tr>
+         <tr>
+            <td><label for='tipMessage'>Tip Message: </label></td>
+            <td><textarea rows='5' placeholder="Your Message Example: Read my Post at Steemit.com!" id='tipMessage' onchange='checkTipMessage();'></textarea></td>
+            <td>
+               <div class='error' id='tipMessage_err'></div>
+            </td>
+         </tr>
+         <tr>
+            <td></td>
+            <td></td>
+         </tr>
+         <tr>
+            <td>&nbsp;</td>
+            <td colspan='2'>
+               <input type='button' id='calculateFee' value='Calculate Fee' onclick='calculateFee();' />
+               <input type='button' id='transfer' value='Tip/Transfer' onclick='transferTheTips();' disabled='disabled' /> &nbsp;
+               <span id='status'></span><span id='bar'></span>
+            </td>
+         </tr>
+         <tr>
+            <td colspan='3'>
+               <hr />
+            </td>
+         </tr>
+         <tr>
+            <td colspan='3'>
+               <div class='output' id='result'></div>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>
